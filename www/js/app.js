@@ -1005,9 +1005,12 @@ define(['jquery', 'zimArchiveLoader', 'util', 'uiUtil', 'cache', 'utf8', 'cookie
                             console.log("redirect to " + redirectURL + " sent to ServiceWorker");
                         });
                     } else {
+                        var mimetype = dirEntry.getMimetype();
                         var cacheKey = selectedArchive._file._files[0].name + '@' + title;
                         cache.getItemFromCacheOrZIM(selectedArchive, cacheKey, function(content) {
-                            var message = { 'action': 'giveContent', 'title' : title, 'content': content.buffer ? content.buffer : content };
+                            if (mimetype === 'text/html' && !/^\s*<DOCTYPE\s+/.test(content)) content = '<!DOCTYPE html>\n' + content;
+                            var message = { 'action': 'giveContent', 'title' : title, 'content': content.buffer ? content.buffer : content,
+                                'mimetype': mimetype };
                             if (content.buffer) {
                                 messagePort.postMessage(message, [content.buffer]);
                             } else {
