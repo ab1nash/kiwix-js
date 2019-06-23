@@ -1008,7 +1008,7 @@ define(['jquery', 'zimArchiveLoader', 'util', 'uiUtil', 'cache', 'utf8', 'cookie
                         var mimetype = dirEntry.getMimetype();
                         var cacheKey = selectedArchive._file._files[0].name + '@' + title;
                         cache.getItemFromCacheOrZIM(selectedArchive, cacheKey, function(content) {
-                            if (mimetype === 'text/html' && !/^\s*<DOCTYPE\s+/.test(content)) content = '<!DOCTYPE html>\n' + content;
+                            if (mimetype === 'text/html' && !/^\s*(?:<!DOCTYPE|<\?xml)\s+/i.test(content)) content = '<!DOCTYPE html>\n' + content;
                             var message = { 'action': 'giveContent', 'title' : title, 'content': content.buffer ? content.buffer : content,
                                 'mimetype': mimetype };
                             if (content.buffer) {
