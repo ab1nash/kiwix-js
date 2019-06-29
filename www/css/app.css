@@ -77,6 +77,10 @@
     background: lightblue;
 }
 
+#formArticleSearch {
+    padding-top: 1rem;
+}
+
 .articleIFrame {
     width: 100%;
     border: 0;
@@ -204,6 +208,10 @@
     .form-control {
         height: 28px !important;
         padding-bottom: 5px !important;
+    }
+    #formArticleSearch {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
     /* Reduce size of the top buttons */
     .btn-outline-secondary {
