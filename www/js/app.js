@@ -800,7 +800,7 @@ define(['jquery', 'zimArchiveLoader', 'util', 'uiUtil', 'cookies','abstractFiles
      */
     function searchDirEntriesFromPrefix(prefix) {
         if (selectedArchive !== null && selectedArchive.isReady()) {
-            $('#activeContent').alert('close');
+            $('#activeContent').hide();
             selectedArchive.findDirEntriesWithPrefix(prefix.trim(), MAX_SEARCH_RESULT_SIZE, populateListOfArticles);
         } else {
             $('#searchingArticles').hide();
@@ -1046,8 +1046,8 @@ define(['jquery', 'zimArchiveLoader', 'util', 'uiUtil', 'cookies','abstractFiles
         // Tell jQuery we're removing the iframe document: clears jQuery cache and prevents memory leaks [kiwix-js #361]
         $('#articleContent').contents().remove();
 
-        // Remove from DOM any download alert box that was activated in uiUtil.displayFileDownloadAlert function
-        $('#downloadAlert').alert('close');
+        // Hide any alert box that was activated in uiUtil.displayFileDownloadAlert function
+        $('#downloadAlert').hide();
         
         var iframeArticleContent = document.getElementById('articleContent');
         
@@ -1345,7 +1345,7 @@ define(['jquery', 'zimArchiveLoader', 'util', 'uiUtil', 'cookies','abstractFiles
                 });
             } else {
                 params.isLandingPage = false;
-                $('#activeContent').alert('close');
+                $('#activeContent').hide();
                 readArticle(dirEntry);
             }
         }).fail(function(e) { alert("Error reading article with title " + title + " : " + e); });
@@ -1360,7 +1360,7 @@ define(['jquery', 'zimArchiveLoader', 'util', 'uiUtil', 'cookies','abstractFiles
             } else {
                 if (dirEntry.namespace === 'A') {
                     params.isLandingPage = false;
-                    $('#activeContent').alert('close');
+                    $('#activeContent').hide();
                     readArticle(dirEntry);
                 } else {
                     // If the random title search did not end up on an article,
