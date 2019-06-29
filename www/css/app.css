@@ -82,10 +82,6 @@
     border: 0;
 }
 
-.category-padding {
-   margin: 0 1rem 0 1rem;
-}
-
 .apiAvailable {
     color : green;
 }
@@ -140,6 +136,40 @@
     text-align: center;
 }
 
+/* Modify default Bootstrap 4 colours */
+.card-info {
+    border-color: #bce8f1;
+}
+.card-info .card-header {
+    background-color: #d9edf7;
+    color: #31708f;
+}
+.card-success {
+    border-color: #d6e9c6;
+}
+.card-success .card-header{
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+.card-danger {
+    border-color: #ebccd1;
+}
+.card-danger .card-header {
+    background-color: #f2dede;
+    color: #a94442;
+}
+.card-warning {
+    border-color: #faebcc;
+}
+.card-warning .card-header {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.btn-lg {
+    color: #337ab7;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -176,7 +206,7 @@
         padding-bottom: 5px !important;
     }
     /* Reduce size of the top buttons */
-    .btn-xs, .btn-sm, .btn-default, .btn-group-xs > .btn, .btn-group-sm > .btn {
+    .btn-outline-secondary {
         font-size: 10px !important;
     }
     /* Reduce size of the bottom buttons */
